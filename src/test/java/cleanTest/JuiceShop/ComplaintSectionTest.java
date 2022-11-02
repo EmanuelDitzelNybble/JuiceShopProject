@@ -33,6 +33,7 @@ public class ComplaintSectionTest extends TestBaseJuiceShop {
         // Open Side Menu
         navBarSection.openSideButton.waitClickable();
         navBarSection.openSideButton.click();
+        Assertions.assertTrue(complaintSection.complaintbutton.isControlDisplayed(), "Error clicking open side button");
 
         // Complaint Section
         complaintSection.complaintbutton.waitClickable();
@@ -40,8 +41,8 @@ public class ComplaintSectionTest extends TestBaseJuiceShop {
         complaintSection.complaint.setText(k.setComment);
         complaintSection.submitButton.waitClickable();
         complaintSection.submitButton.click();
-        //complaintSection.confirmation.isControlDisplayed();
-        //Assertions.assertTrue(complaintSection.confirmation.isControlDisplayed(),"Error sending complaint message");
+        complaintSection.confirmationMessage.waitVisibility();
+        Assertions.assertTrue(complaintSection.confirmationMessage.isControlDisplayed(),"Error sending complaint message");
     }
 }
 
